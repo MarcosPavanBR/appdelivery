@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Texts from "../../constants/Texts";
 import SignupPage from "./signup";
 
-const LoginPage = () => {
+const LoginPage = () => {const navigate = useNavigate();
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [cadastro, setCadastro] = useState(false);
@@ -14,7 +14,7 @@ const LoginPage = () => {
 
     try {
       await login(email, password);
-      window.location = "/";
+      navigate("/");
     } catch (error) {
       console.error("Erro de login:", error);
     }
@@ -89,3 +89,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+

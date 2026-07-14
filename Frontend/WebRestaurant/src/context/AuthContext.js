@@ -16,9 +16,9 @@ export const AuthProvider = ({ children }) => {
 
   const [socketMessage, setSocketMessage] = useState([]);
 
-  const url = api.getUri().replace("http", "ws") + "/api/order/ws/1";
+  // Só conecta WebSocket após login válido
 
-  const { sendJsonMessage, lastMessage } = useWebSocket(url, {
+  const [wsUrl, setWsUrl] = useState(null);useEffect(()=>{if(user?.sub){setWsUrl(api.getUri().replace('http','ws')+'/api/order/ws/'+user.sub+'?token='+localStorage.getItem(Strings.token_jwt))}},[user]);const { sendJsonMessage, lastMessage } = useWebSocket(wsUrl, {
     reconnectInterval: 1000,
     retryOnError: true,
     reconnectAttempts: 5,
@@ -137,3 +137,4 @@ export const AuthProvider = ({ children }) => {
 
 // Crie um hook personalizado para acessar o contexto de autenticação
 export const useAuth = () => useContext(AuthContext);
+
