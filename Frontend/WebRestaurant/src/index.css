@@ -20,3 +20,8 @@ input,
 textarea {
   border-radius: 5px !important;
 }
+
+:root {
+  --menu1: #FF6B35;
+  --menu2: #004E89;
+}
