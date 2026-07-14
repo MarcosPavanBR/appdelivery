@@ -54,6 +54,10 @@ module.exports = {
           from: "./node_modules/firebase/firebase-messaging-sw.js",
           to: "firebase-messaging-sw.js",
         },
+        {
+          from: "./public/_redirects",
+          to: "_redirects",
+        },
       ],
     }),
   ],
