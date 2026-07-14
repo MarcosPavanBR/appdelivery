@@ -2,12 +2,12 @@ import React from "react";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import LoginPage from "./pages/login";
 import Home from "./pages/home";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Cardapio from "./pages/cardapio/products/Cardapio";
 import Perfil from "./pages/perfil";
 import Taxes from "./pages/perfil/taxes";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />,
