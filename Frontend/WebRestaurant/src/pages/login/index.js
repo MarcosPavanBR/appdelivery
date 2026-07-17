@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Texts from "../../constants/Texts";
 import SignupPage from "./signup";
 
-const LoginPage = () => {const navigate = useNavigate();
+const LoginPage = () => {
+  const navigate = useNavigate();
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [cadastro, setCadastro] = useState(false);
